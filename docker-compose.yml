@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  jenkins:
+    build: .
+    container_name: jenkins-blueocean
+    restart: unless-stopped
+    networks: [ jenkins ]
+    environment:
+      - DOCKER_HOST=tcp://docker:2376
+      - DOCKER_CERT_PATH=/certs/client
+      - DOCKER_TLS_VERIFY=1
+    volumes:
+      - jenkins-data:/var/jenkins_home
+      - jenkins-docker-certs:/certs/client:ro
+    ports:
+      - 8080:8080
+      - 50000:5000
+
+volumes:
+  jenkins-data:
+  jenkins-docker-certs:
+
+networks:
+  jenkins:
