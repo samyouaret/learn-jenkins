@@ -1,7 +1,9 @@
+import fire
 
-def printHello():
-    print("marhaba!")
+
+def printHello(name="Sam"):
+    return "Marhba %s" % name
 
 
 if __name__ == "__main__":
-    printHello()
+    fire.Fire(printHello)

@@ -9,15 +9,15 @@ pipeline {
         }
         stages {
 
-            stage('build'){
+            stage('Build'){
                 steps {
-                    echo 'Building'
+                    pip install -r requirements.txt
                 }
             }
 
-            stage ('test'){
-                steps{
-                    echo 'Testing'
+            stage ('Test'){
+                steps {
+                    python3 app.py --name="Jenkins"
                 }
             }
 
