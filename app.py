@@ -1,6 +1,6 @@
 
 def printHello():
-    print("Hello World")
+    print("Hola Mundo!")
 
 
 if __name__ == "__main__":
